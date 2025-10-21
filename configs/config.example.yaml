@@ -1,0 +1,77 @@
+# Application Configuration Example
+# Copy this file to config.yaml and modify as needed
+
+app:
+  name: "yourapp"
+  version: "1.0.0"
+  env: "development" # development, staging, production
+
+server:
+  host: "localhost"
+  port: 8123
+  read_timeout: 30s
+  write_timeout: 30s
+
+database:
+  mysql:
+    enabled: true
+    host: "localhost"
+    port: 3306
+    username: "root"
+    password: "root"
+    database: "gzf-test"
+    charset: "utf8mb4"
+    parse_time: true
+    loc: "Local"
+    max_idle_conns: 10
+    max_open_conns: 100
+    conn_max_lifetime: 3600s
+
+  postgres:
+    enabled: false
+    host: "localhost"
+    port: 5432
+    username: "postgres"
+    password: "root"
+    database: "gzf-test"
+    sslmode: "disable"
+    max_idle_conns: 10
+    max_open_conns: 100
+    conn_max_lifetime: 3600s
+
+cache:
+  redis:
+    enabled: true
+    host: "localhost"
+    port: 6379
+    password: ""
+    database: 0
+    pool_size: 10
+    min_idle_conns: 5
+    max_conn_age: 3600s
+
+elasticsearch:
+  enabled: true
+  host: "localhost"
+  port: 9200
+  username: ""
+  password: ""
+  max_idle_conns_per_host: 10
+  timeout: 30s
+
+kafka:
+  enabled: true
+  host: "localhost"
+  port: 9092
+  username: ""
+  password: ""
+  security_protocol: "PLAINTEXT" # PLAINTEXT, SSL, SASL_PLAINTEXT, SASL_SSL
+  sasl_mechanism: "PLAIN" # PLAIN, SCRAM-SHA-256, SCRAM-SHA-512
+  session_timeout: 30s
+  heartbeat_interval: 3s
+
+logging:
+  level: "debug" # debug, info, warn, error
+  format: "json" # json, text
+  output: "stdout" # stdout, stderr, file
+  file_path: "logs/app.log"
